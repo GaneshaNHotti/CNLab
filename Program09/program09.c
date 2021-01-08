@@ -14,24 +14,15 @@ int main() {
 		scanf("%d", &frames[i]);
 	}
 	
-	printf("\nWith sliding window protocol, the frames will be sent ");
-	printf("in the following manner(assuming no corruption of frames)\n");
+	printf("\nWith sliding window protocol, the frames will be sent in the following manner(assuming no corruption of frames)\n");
 	
-	printf("After sending %d frames at each stage, the sender ", windowSize);
-	printf("waits for acknowledgement sent by the receiver\n");
+	printf("After sending %d frames at each stage, the sender waits for acknowledgement sent by the receiver\n ", windowSize);
 	
 	for(int i=1; i<=noOfFrames; i++) {
-		
-		// If the ith frame sent is a multiple of the windowSize
 		if(i % windowSize == 0) {
-			// The frame will be sent to the destination and
-			// acknowledgement is to be received by the sender
-			
 			printf("%d\n", frames[i]);
-			
 			printf("Acknowledgement of above frames sent is received by sender\n");
 		}
-		// Else no acknowledgement is expected until the sliding window is full
 		else {
 			printf("%d ", frames[i]);
 		}
